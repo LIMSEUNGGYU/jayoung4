@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inout: MyString
+  category: MyString
+  title: MyString
+  cost: 
+  memo: MyText
+  person: one
+
+two:
+  inout: MyString
+  category: MyString
+  title: MyString
+  cost: 
+  memo: MyText
+  person: two
