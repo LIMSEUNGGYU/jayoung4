@@ -4,7 +4,7 @@ class CreateContents < ActiveRecord::Migration[5.0]
       t.string :inout
       t.string :category
       t.string :title
-      t.int :cost
+      t.integer :cost
       t.text :memo
       t.references :person, foreign_key: true
 

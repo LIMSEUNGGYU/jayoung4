@@ -1,3 +1,4 @@
 class Person < ApplicationRecord
-    has_many :content
+    has_many :contents, dependent: :destroy
+    belongs_to :user
 end
