@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815025432) do
+ActiveRecord::Schema.define(version: 20180815084708) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "inout"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180815025432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "date"
     t.index ["person_id"], name: "index_contents_on_person_id"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180815025432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "image"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 

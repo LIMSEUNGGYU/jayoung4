@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
+#DB관리를 위한 젬
+gem "rails_db", "1.6"
 #페이지네이션을 위한 젬
 gem 'kaminari'
 gem 'faker'
 # 이미지 업로드를 위한 젬
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mini_magick'
 # 유저, 로그인을 위한 젬
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

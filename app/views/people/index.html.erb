@@ -1,1 +1,25 @@
-기메진 조용해!
+<div class="container">
+    <div class="row">
+        <% @people.each do |person| %>
+            <% if(person.user_id == current_user.id) %>
+            <div class="col-sm">
+                <div class="card" style="width: 12rem;">
+                    <img class="card-img-top" src="https://pbs.twimg.com/profile_images/944827848426057729/6GOg2gTw_400x400.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <center>
+                        <h5 class="card-title"><%= person.name %></h5>
+                        <p class="card-text"><%= person.relation %></p>
+                        <p class="card-text"><%= person.phone %></p>
+                        <a href="#" class="btn btn-primary">내역 추가</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        <% end %>
+
+</div>
+
+<%= link_to new_person_path do %>
+    <button style="display:scroll; position:fixed; margin-left: 620px; bottom: 20px; left:50%;" class="btn btn-primary" href="#">+</button>
+<%end%>

@@ -1,0 +1,21 @@
+    <%= form_for :person, url: people_path do |f| %>
+          <div class="field">
+                <%= f.label :image %><br>
+                <%= f.file_field :image %>
+         </div>
+        <p>
+            <%= f.label :name %><br>
+            <%= f.text_field :name , class: 'form-control' %>
+        </p>
+        
+        <p>
+            <%= f.label :phone %><br>
+            <%= f.text_field :phone , class: 'form-control' %>
+        </p>
+        
+        <%= f.select(:relation, ['가족', '친구', '지인', '직장동료', '거래처', '기타'],{:class => 'input-group'})%>
+        
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        
+        <p><%= f.submit'등록', class: 'btn btn-outline-warning' %></p>
+    <% end %>

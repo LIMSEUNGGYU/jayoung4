@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'people#index'
+  root 'home#index'
   
   resources :people do
     resources :contents
   end
+  
+  resources :people 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

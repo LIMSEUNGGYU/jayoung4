@@ -1,0 +1,10 @@
+<div class="container mt-4 px-5">
+            <div style="height: 50px; text-align: center;">
+                <% if user_signed_in? %><%= current_user.email %>님, 안녕하세요
+                <% else %>로그인이 필요합니다
+                <% end %>
+            </div>
+            <p style="text-align: center;">
+            <img src="https://pbs.twimg.com/media/C0JS1YsXUAAEu4E.jpg" style="max-width: 60%; height: auto;">
+            </p>
+        </div>
