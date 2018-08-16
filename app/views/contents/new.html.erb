@@ -1,0 +1,35 @@
+<head>
+    
+</head>
+
+<body>
+  <div class='container'>
+    <%= form_for :content, url: person_contents_path(@person.id) do |f| %>
+    
+      <%= f.label :inout %> <!-- 수입 지출 목록 -->
+      <%= f.text_field :inout %><br>
+    
+      <%= f.select(:category, ['결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%>
+      
+      <%= f.label :title %>
+      <%= f.text_field :title %><br>
+      
+      <%= f.label :cost %>
+      <%= f.text_field :cost %><br>
+      
+      <%= f.label :memo %>
+      <%= f.text_area :memo %><br>
+      
+      <%= f.submit %>
+    <% end %>
+  </div>
+  
+  <script>
+    $('#inputGroupSelect01 option > 1').on('click', function() {
+    // 버튼에 선택된 항목 텍스트 넣기 
+    $('#myvalue').text($(this).text());
+        
+    // 선택된 항목 값(value) 얻기
+});
+  </script>
+</body>

@@ -1,14 +1,14 @@
-    <%= form_for :person, url: people_path do |f| %>
-          <div class="field">
+    <%= form_for :person, :html => { :multipart => true }, url: people_path do |f| %>
+        <div class="field">
                 <%= f.label :image %><br>
                 <%= f.file_field :image %>
-         </div>
+        </div>
         <p>
             <%= f.label :name %><br>
             <%= f.text_field :name , class: 'form-control' %>
         </p>
         
-        <p>
+        <p> 
             <%= f.label :phone %><br>
             <%= f.text_field :phone , class: 'form-control' %>
         </p>

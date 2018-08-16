@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+    before_action :authenticate_user!
+    
     def new
     end
     
@@ -7,14 +9,15 @@ class PeopleController < ApplicationController
     end
     
     def create
-        @person = Person.new(params.require(:person).permit(:name, :phone, :relation, :user_id))
+        @person = Person.new(params.require(:person).permit(:name, :phone, :relation, :user_id, :image))
         
         @person.save
         redirect_to people_path
     end
     
     def show
-        @person= Person.find(params[:id])
+        @person = Person.find(params[:id])
+        @contents = Content.order("created_at DESC").page(params[:page])
     end
     
     def destroy
