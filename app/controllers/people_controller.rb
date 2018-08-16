@@ -11,8 +11,11 @@ class PeopleController < ApplicationController
     def create
         @person = Person.new(params.require(:person).permit(:name, :phone, :relation, :user_id, :image))
         
-        @person.save
-        redirect_to people_path
+        if @person.save
+            redirect_to people_path
+        else
+            redirect_to new_person_path
+        end
     end
     
     def show
