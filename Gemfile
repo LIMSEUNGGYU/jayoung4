@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-#DB관리를 위한 젬
-gem "rails_db", "1.6"
 #페이지네이션을 위한 젬
 gem 'kaminari'
 gem 'faker'
@@ -11,6 +9,9 @@ gem 'fog-aws'
 gem 'mini_magick'
 # 유저, 로그인을 위한 젬
 gem 'devise'
+#검색 기능을 위한 젬
+gem 'sunspot_rails'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -55,5 +56,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  gem 'sunspot_solr'
 end
 

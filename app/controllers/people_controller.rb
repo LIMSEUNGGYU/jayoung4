@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
     end
     
     def index
-        @people = Person.order(:name)
+        @people = Person.all.order(:name)
     end
     
     def create
@@ -41,6 +41,20 @@ class PeopleController < ApplicationController
         
         redirect_to @person
     end
-
+    
+    def search
+        @people = Person.search do
+            fulltext params[:search]
+        end.results
+        
+        if @people == Person.all
+            redirect_to people_path
+        else
+            respond_to do |format|
+                format.html { render :action => "index" }
+                format.xml  { render :xml => @people }
+            end
+        end
+    end
     
 end
