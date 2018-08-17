@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
     end
     
     def index
-       @people = Person.all 
+        @people = Person.order(:name)
     end
     
     def create
@@ -41,5 +41,6 @@ class PeopleController < ApplicationController
         
         redirect_to @person
     end
+
     
 end
