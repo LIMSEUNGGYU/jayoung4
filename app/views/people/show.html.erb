@@ -19,18 +19,42 @@
           </div>
         </div>
       </div>
-    
-    
-      <div class="col">
+      
+      <div class="col-7">
         <div>
-          
+          <%= @person.sum %>
         </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>수입</th>
+              <th>항목</th>
+              <th>제목</th>
+              <th>금액</th>
+              <th>메모</th>
+              <th>날짜</th>
+              <th>수정</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @contents.each do |content| %>
+              <tr>
+               <td><%= content.inout %></td>
+               <td><%= content.category %></td>
+               <td><%= content.title %></td>
+               <td><%= content.cost %></td>
+               <td><%= content.memo %></td>
+               <td><%= content.date %></td>
+               <td><%= link_to '수정', edit_content_path(content) %></td>
+               <td><%= link_to '삭제', content_path(content), method: :delete  %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
-    </div>
   </div>
-  
   <%= link_to new_person_content_path(@person) do %>
     <button style="display:scroll; position:fixed; margin-left: 620px; bottom: 20px; left:50%;" class="btn btn-primary">+</button>
   <%end%>
-
-</body>
+</body

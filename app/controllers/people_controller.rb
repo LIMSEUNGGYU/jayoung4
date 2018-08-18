@@ -20,7 +20,19 @@ class PeopleController < ApplicationController
     
     def show
         @person = Person.find(params[:id])
-        @contents = Content.order("created_at DESC").page(params[:page])
+        
+        # redirect_to person_content_path(@person)
+        @contents = @person.contents
+        # @contents = @person.contents.paginate(:page => params[:page], :per_page => 5)
+        # @contents = @person.contents.order("created_at DESC").page(params[:page])
+        
+        @person.contents.each do |content|
+          if content.inout == '수입'
+            @person.sum += content.cost
+          elsif content.inout == '지출'
+            @person.sum -= content.cost
+          end
+        end
     end
     
     def destroy
@@ -35,11 +47,10 @@ class PeopleController < ApplicationController
     end
     
     def update
-        params.permit!
         @person = Person.find(params[:id])
-        @person.update(params[:person])
+        @person.update(params.require(:person).permit(:name, :phone, :relation, :user_id, :image))
         
-        redirect_to @person
+        redirect_to people_path
     end
     
     def search
@@ -47,7 +58,7 @@ class PeopleController < ApplicationController
             fulltext params[:search]
         end.results
         
-        if @people == Person.all
+        if params[:search] == ""
             redirect_to people_path
         else
             respond_to do |format|

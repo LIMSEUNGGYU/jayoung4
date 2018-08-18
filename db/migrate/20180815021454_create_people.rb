@@ -4,7 +4,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :phone
       t.string :relation
-      t.integer :sum
+      t.integer :sum, default: 0
 
       t.timestamps
     end

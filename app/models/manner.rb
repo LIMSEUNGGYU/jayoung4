@@ -1,0 +1,2 @@
+class Manner < ApplicationRecord
+end

@@ -4,12 +4,12 @@
 
 <body>
   <div class='container'>
-    <%= form_for :content, url: person_contents_path(@person.id) do |f| %>
+    <%= form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>
     
-      <%= f.label :inout %> <!-- 수입 지출 목록 -->
-      <%= f.text_field :inout %><br>
+      
+      <%= f.select(:inout, ['', '수입', '지출'], {:class => 'my-style_class'}) %><br>
     
-      <%= f.select(:category, ['결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%>
+      <%= f.select(:category, ['', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%><br>
       
       <%= f.label :title %>
       <%= f.text_field :title %><br>
@@ -20,16 +20,28 @@
       <%= f.label :memo %>
       <%= f.text_area :memo %><br>
       
+      <%= f.label :date %>
+      <%= f.date_field(:date) %>
+      
       <%= f.submit %>
     <% end %>
   </div>
   
   <script>
-    $('#inputGroupSelect01 option > 1').on('click', function() {
-    // 버튼에 선택된 항목 텍스트 넣기 
-    $('#myvalue').text($(this).text());
-        
-    // 선택된 항목 값(value) 얻기
-});
+    function validateform(){
+        var contentInout = document.contentForm.content_inout;
+        var contentCategory = document.contentForm.content_categoty;
+        var contentDate = document.contentForm.content_date;
+
+        if(contentInout.value==""){
+            alert("수입/지출이 선택되지 않았습니다.");
+        }
+        else if(contentCategory.value==""){
+            alert("카테고리가 선택되지 않았습니다.");
+        }
+        else if(contentDate.value==""){
+            alert("날짜가 선택되지 않았습니다.");
+        }
+    }
   </script>
 </body>

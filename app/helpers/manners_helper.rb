@@ -1,0 +1,2 @@
+module MannersHelper
+end

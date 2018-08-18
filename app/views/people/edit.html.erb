@@ -1,0 +1,48 @@
+<div class="container">
+    <center><p>연락처 변경</p></center>
+    <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: person_path, method: :patch  do |f| %>
+        <div class="field">
+            <p>프로필 사진</p>
+            <%= f.file_field :image %>
+        </div>
+        <br><br>
+        <div class="field">
+            <p>이름</p>
+            <%= f.text_field :name , class: 'form-control' %>
+        </div>
+        <br><br>
+        <div class="field">
+            <p>전화번호</p>
+            <%= f.text_field :phone , class: 'form-control' %>
+        </div>
+        <br><br>
+        <div class="field">
+            <p>관계</p></p>
+            <%= f.select(:relation, ['가족', '친구', '지인', '직장동료', '거래처', '기타'],{:class => 'input-group'})%>
+        </div>
+        
+    
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <br><br>
+        <p><%= f.submit'등록', class: 'btn btn-outline-warning' %></p>
+    <% end %>
+</div>
+
+
+<script>
+        function validateform(){
+            var personName = document.personForm.person_name;
+            var personPhone = document.personForm.person_phone;
+            var personImage = document.personForm.person_image;
+
+            if(personName.value==""){
+                alert("이름이 입력되지 않았습니다.");
+            }
+            else if(personPhone.value==""){
+                alert("전화번호가 입력되지 않았습니다.");
+            }
+            else if(personImage.value==""){
+                alert("프로필 사진이 입력되지 않았습니다.");
+            }
+        }
+</script>

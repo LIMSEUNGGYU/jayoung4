@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 #페이지네이션을 위한 젬
+# gem 'will_paginate'
 gem 'kaminari'
 gem 'faker'
 # 이미지 업로드를 위한 젬

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'home#index'
   
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  root 'home#index'
+  resources :manners
   resources :people do
     resources :contents
     collection do
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   end
   
   resources :contents
+  
+  get '/manners/manner/manner1', to: 'manners#manner1', as: 'manner1'
+  get '/manners/manner/manner2', to: 'manners#manner2', as: 'manner2'
+  get '/manners/manner/manner3', to: 'manners#manner3', as: 'manner3'
+  get '/manners/manner/manner4', to: 'manners#manner4', as: 'manner4'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
