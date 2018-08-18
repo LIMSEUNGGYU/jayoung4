@@ -24,7 +24,7 @@
     
         <%= f.hidden_field :user_id, value: current_user.id %>
         <br><br>
-        <p><%= f.submit'등록', class: 'btn btn-outline-warning' %></p>
+        <p><%= f.button :submit, label: '등록' ,class: 'btn btn-outline-warning' %></p>
     <% end %>
 </div>
 
@@ -37,12 +37,21 @@
 
             if(personName.value==""){
                 alert("이름이 입력되지 않았습니다.");
+                document.personForm.person_name.focus();
+                document.getElementById('person_name').select();
+                return false;
+            }
+            else if(personName.value.length > 5){
+                alert("이름은 5글자 이하로 작성해주세요.");
+                document.personForm.person_name.focus();
+                document.getElementById('person_name').select();
+                return false;
             }
             else if(personPhone.value==""){
                 alert("전화번호가 입력되지 않았습니다.");
-            }
-            else if(personImage.value==""){
-                alert("프로필 사진이 입력되지 않았습니다.");
+                document.personForm.person_phone.focus();
+                document.getElementById('person_phone').select();
+                return false;
             }
         }
 </script>

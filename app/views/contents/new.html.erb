@@ -15,7 +15,7 @@
       <%= f.text_field :title %><br>
       
       <%= f.label :cost %>
-      <%= f.text_field :cost %><br>
+      <%= f.number_field :cost, step: 10000 %><br>
       
       <%= f.label :memo %>
       <%= f.text_area :memo %><br>
@@ -23,24 +23,32 @@
       <%= f.label :date %>
       <%= f.date_field(:date) %>
       
-      <%= f.submit %>
+      <%= f.button :submit, label: '등록' ,class: 'btn btn-outline-warning' %>
     <% end %>
   </div>
   
   <script>
     function validateform(){
         var contentInout = document.contentForm.content_inout;
-        var contentCategory = document.contentForm.content_categoty;
+        var contentCategory = document.contentForm.content_category;
         var contentDate = document.contentForm.content_date;
+        var contentCost = document.contentForm.content_cost;
 
         if(contentInout.value==""){
             alert("수입/지출이 선택되지 않았습니다.");
+            return false;
         }
         else if(contentCategory.value==""){
             alert("카테고리가 선택되지 않았습니다.");
+            return false;
         }
         else if(contentDate.value==""){
             alert("날짜가 선택되지 않았습니다.");
+            return false;
+        }
+        else if(contentCost.value==""){
+            alert("금액이 입력되지 않았습니다.");
+            return false;
         }
     }
   </script>
