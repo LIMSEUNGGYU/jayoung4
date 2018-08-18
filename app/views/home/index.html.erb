@@ -1,6 +1,6 @@
 <div class="container mt-4 px-5">
             <div style="height: 50px; text-align: center;">
-                <% if user_signed_in? %><%= current_user.email %>님, 안녕하세요
+                <% if user_signed_in? %><%= current_user.name %>님, 안녕하세요
                 <% else %>로그인이 필요합니다
                 <% end %>
             </div>

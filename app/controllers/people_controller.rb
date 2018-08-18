@@ -33,6 +33,8 @@ class PeopleController < ApplicationController
             @person.sum -= content.cost
           end
         end
+        
+        @person.update(params.permit(:sum))
     end
     
     def destroy

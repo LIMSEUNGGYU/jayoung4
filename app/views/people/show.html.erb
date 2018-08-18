@@ -9,11 +9,17 @@
         <div class="col-sm">
           <div class="card" style="width: 12rem;">
             <center>
-              <%= image_tag person.image.url, class: 'custom_img'%>
+              <%= image_tag @person.image.url, class: 'custom_img'%>
               <div class="card-body">
                   <h5 class="card-title"><%= @person.name %></h5>
                   <p class="card-text"><%= @person.relation %></p>
                   <p class="card-text"><%= @person.phone %></p>
+                  <%= link_to edit_person_path(@person) do %>
+                    <button type="button" class="btn btn-outline-warning">수정</button>
+                  <% end %>
+                  <%= link_to person_path(@person), method: :delete do %>
+                    <button type="button" class="btn btn-outline-warning">삭제</button>
+                  <% end %>
               </div>
             </center>
           </div>
@@ -52,9 +58,10 @@
             <% end %>
           </tbody>
         </table>
+          <%= link_to new_person_content_path(@person) do %>
+            <button type="button" class="btn btn-outline-warning">내역 추가</button>
+          <%end%>
       </div>
   </div>
-  <%= link_to new_person_content_path(@person) do %>
-    <button style="display:scroll; position:fixed; margin-left: 620px; bottom: 20px; left:50%;" class="btn btn-primary">+</button>
-  <%end%>
+
 </body
