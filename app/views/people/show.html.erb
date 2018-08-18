@@ -8,14 +8,14 @@
       <div class="col">
         <div class="col-sm">
           <div class="card" style="width: 12rem;">
-            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/944827848426057729/6GOg2gTw_400x400.jpg" alt="Card image cap">
+            <center>
+              <%= image_tag person.image.url, class: 'custom_img'%>
               <div class="card-body">
-                <center>
                   <h5 class="card-title"><%= @person.name %></h5>
                   <p class="card-text"><%= @person.relation %></p>
                   <p class="card-text"><%= @person.phone %></p>
-                </center>
               </div>
+            </center>
           </div>
         </div>
       </div>
