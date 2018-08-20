@@ -1,24 +1,27 @@
 <head>
-    
+     <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&amp;subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&amp;subset=korean" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col-3">
+        
         <div class="col-sm">
-          <div class="card" style="width: 12rem;">
+          <div class="card" style="width: 15rem; background-color: #F6F6F6;">
             <center>
               <%= image_tag @person.image.url, class: 'custom_img'%>
               <div class="card-body">
-                  <h5 class="card-title"><%= @person.name %></h5>
-                  <p class="card-text"><%= @person.relation %></p>
-                  <p class="card-text"><%= @person.phone %></p>
+                  <h5 class="card-title" style="font-family: 'Black Han Sans', sans-serif; font-size:2em;"><%= @person.name %></h5>
+                  <p class="card-text" style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= @person.relation %></p>
+                  <p class="card-text" style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= @person.phone %></p>
                   <%= link_to edit_person_path(@person) do %>
-                    <button type="button" class="btn btn-outline-warning">수정</button>
+                    <button style="margin-top: 8px" type="button" class="btn btn-outline-secondary">수정</button>
                   <% end %>
                   <%= link_to person_path(@person), method: :delete do %>
-                    <button type="button" class="btn btn-outline-warning">삭제</button>
+                    <button style="margin-top: 8px" type="button" class="btn btn-outline-secondary">삭제</button>
                   <% end %>
               </div>
             </center>
@@ -26,26 +29,29 @@
         </div>
       </div>
       
-      <div class="col-7">
-        <div>
-          <%= @person.sum %>
+      <div class="col-9">
+        <div style="text-align:right; font-weight: bold; font-family: 'Nanum Myeongjo', serif; margin-bottom:12px;">
+          <img src="/image/money-bag.png" width="30" height="30">
+           * 누적금액: 
+          <%= @person.sum %>원 * 
+          <img src="/image/money-bag.png" width="30" height="30">
         </div>
-        <table class="table table-striped">
+        <table class="table table-hover" style=" line-height: 20px">
           <thead>
-            <tr>
-              <th>수입</th>
+            <tr style="font-family: 'East Sea Dokdo', cursive; font-size: 1.7em;">
+              <th>수지</th>
               <th>항목</th>
               <th>제목</th>
               <th>금액</th>
               <th>메모</th>
               <th>날짜</th>
-              <th>수정</th>
-              <th>삭제</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <% @contents.each do |content| %>
-              <tr>
+              <tr style="font-family: 'Nanum Gothic', sans-serif;">
                <td><%= content.inout %></td>
                <td><%= content.category %></td>
                <td><%= content.title %></td>
@@ -59,9 +65,9 @@
           </tbody>
         </table>
           <%= link_to new_person_content_path(@person) do %>
-            <button type="button" class="btn btn-outline-warning">내역 추가</button>
+            <button type="button" class="btn btn-secondary">내역 추가</button>
           <%end%>
       </div>
   </div>
 
-</body
+</body>

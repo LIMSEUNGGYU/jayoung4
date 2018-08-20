@@ -1,30 +1,36 @@
 <head>
-    
+ <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+  
+  <style>
+  
+    body {
+      height: 1300px;
+      font-family: 'Nanum Gothic', sans-serif;
+      
+    }
+  
+  </style>
 </head>
 
 <body>
-  <div class='container'>
-    <%= form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>
+  <div class='container' style="display:flex; justify-content:center; margin-top: 50px;">
+    <div style="mt-5 width:600px; font-weight: bold;">
+    <%= bootstrap_form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>
+      <%= f.select(:수지내역, ['선택', '수입', '지출'], {:class => 'my-style_class'}) %>
     
+      <%= f.select(:항목, ['선택', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%><br>
       
-      <%= f.select(:inout, ['', '수입', '지출'], {:class => 'my-style_class'}) %><br>
-    
-      <%= f.select(:category, ['', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%><br>
+      <%= f.text_field :제목 %><br>
+       
+      <%= f.number_field :금액, step: 10000 %><br>
+       
+      <%= f.text_area :메모 %><br>
       
-      <%= f.label :title %>
-      <%= f.text_field :title %><br>
+      <%= f.date_field(:날짜) %>
       
-      <%= f.label :cost %>
-      <%= f.number_field :cost, step: 10000 %><br>
-      
-      <%= f.label :memo %>
-      <%= f.text_area :memo %><br>
-      
-      <%= f.label :date %>
-      <%= f.date_field(:date) %>
-      
-      <%= f.button :submit, label: '등록' ,class: 'btn btn-outline-warning' %>
+      <%= f.button :등록, label: '등록' ,class: 'btn btn-outline-warning', style: 'margin-top: 20px;' %>
     <% end %>
+    </div>
   </div>
   
   <script>

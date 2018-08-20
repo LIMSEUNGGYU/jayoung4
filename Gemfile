@@ -13,6 +13,9 @@ gem 'devise'
 #검색 기능을 위한 젬
 gem 'sunspot_rails'
 
+#form을 위한 bootstrap gem 설치
+gem "bootstrap_form", ">= 4.0.0.alpha1"
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

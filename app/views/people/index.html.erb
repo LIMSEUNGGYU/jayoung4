@@ -1,16 +1,33 @@
+<head>
+     <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&amp;subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&amp;subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&amp;subset=korean" rel="stylesheet">
+     
+     <style>
+         .name_search{
+             border: none;
+             border-bottom: solid 0.5px black;
+             margin-bottom: 20px;
+         }    
+     </style>
+     
+     
+</head>
+
 <div class="container">
     <div>
         <%= link_to new_person_path do %>
-            <button type="button" class="btn btn-outline-warning">연락처 추가</button>
-        <%end%>
+            <button style="margin-bottom: 11px;" type="button" class="btn btn-outline-warning">연락처 추가</button>
+        <% end %>
     
         <%= form_tag search_people_path, :method => :get do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag "검색", :name => nil %>
+            <%= text_field_tag :search, nil, placeholder: '이름 검색', :class => 'name_search' %>
+            <%= submit_tag "검색", :name => nil  %>
         <% end %>
         
         <%= form_tag search_people_path, :method => :get do %>
-            <%= select_tag :search, options_for_select([ "가족", "친구", "지인", "직장동료", "거래처", " 기타" ]) %>
+            <%= select_tag :search, options_for_select([ "관계", "가족", "친구", "지인", "직장동료", "거래처", " 기타" ]) %>
             <%= submit_tag "검색", :name => nil %>
         <% end %>
     
@@ -24,11 +41,11 @@
                     <center><%= image_tag person.image.url, class: 'custom_img'%></center>
                     <div class="card-body">
                         <center>
-                            <h5 class="card-title"><%= person.name %></h5>
-                            <p class="card-text"><%= person.relation %></p>
-                            <p class="card-text"><%= person.phone %></p>
+                            <h5 class="card-title" style="font-family: 'Black Han Sans', sans-serif; font-size:2em;"><%= person.name %></h5>
+                            <p class="card-text"style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= person.relation %></p>
+                            <p class="card-text"style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= person.phone %></p>
                             <%= link_to person_path(person) do %>
-                                <button type="button" class="btn btn-outline-warning">내용 상세</button>
+                                <button style="margin-top: 11px" type="button"class="btn btn-outline-secondary">내용 상세</button>
                             <% end %>
                         </center>
                     </div>

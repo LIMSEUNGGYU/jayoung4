@@ -6,7 +6,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800&amp;subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&amp;subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900" rel="stylesheet">
+  
   <style>
     img.custom_img {
       width: 120px;
@@ -15,10 +18,34 @@
       overflow: hidden;
       margin-top:15px;
     }
-
-    a:link { color: black; text-decoration: none;}
-    a:visited { color: black; text-decoration: none;}
-    a:hover { color: gray; text-decoration: underline;}  
+    
+    body {
+      height: 800px;
+    
+      
+    }
+    
+    body.bg_video{
+       margin : 0;
+       padding : 0;
+       background : url("/image/sky1.jpg") center center fixed no-repeat;
+    }
+    
+    video.bg_video1 {
+       position : fixed;
+       top : 0; 
+       left : 0;
+       min-width : 100 %;
+       min-height : 100 %;
+       width : auto;
+       height : auto;
+       z-index : -1;
+    }
+    
+    
+    a:link { color: black; text-decoration: none; font-weight: bold; font-family: 'Nanum Myeongjo', serif;}
+    a:visited { color: black; text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
+    a:hover { color: gray; text-decoration: underline; font-family: 'Nanum Myeongjo', serif;}  
   </style>
 
 </head>
@@ -26,14 +53,13 @@
   <div class="container" style="margin-top:30px;">
     <center>
     <%= link_to '/' do %>
-       <img src="/image/Logo.PNG" style="width: 370px;">
+      <div style="font-family: 'Cinzel', serif;text-align:left; font-size:5em;">Sokmul</div>
     <%end%>
     </center>
   </div>
   
   <div class="container" style="margin-top:30px;">
-    <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-    
+    <nav class="navbar navbar-expand-lg" style="background-color: #ffffff;">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -45,22 +71,29 @@
           <li class="nav-item active">
             <a class="nav-link" href="/manners">예절<span class="sr-only">(current)</span></a>
           </li>
+        </ul>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarNav" style="justify-content:flex-end;">
+        <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <li class="nav-item"><a class="nav-link" href="/users/sign_out" data-method="delete">로그아웃</a></li>
-          <% else %>
-            <li class="nav-item"><a class="nav-link" href="/users/sign_in">로그인</a></li>
-          <% end %>
-          <% if user_signed_in? %>
-            <li class="nav-item"><a class="nav-link" href="/users/edit">정보수정</a></li>
-          <% end %>
+              <li class="nav-item"><a class="nav-link" href="/users/sign_out" data-method="delete">로그아웃</a></li>
+            <% else %>
+              <li class="nav-item"><a class="nav-link" href="/users/sign_in">로그인</a></li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li class="nav-item"><a class="nav-link" href="/users/edit">정보수정</a></li>
+            <% end %>
         </ul>
       </div>
     </nav>
+    <hr style="margin-top:0px;" color = "#000000;">
   </div>
 <!--
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> 
   -->
+  
   <%= yield %>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
