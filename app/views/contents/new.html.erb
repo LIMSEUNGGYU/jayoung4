@@ -3,16 +3,18 @@
   
   <style>
   
-    body {
+    body.main5 {
       height: 1300px;
       font-family: 'Nanum Gothic', sans-serif;
-      
+      background: url("/image/wave.jpg");
+      background-size: cover;
+         
     }
   
   </style>
 </head>
 
-<body>
+<body class="main5">
   <div class='container' style="display:flex; justify-content:center; margin-top: 50px;">
     <div style=" width:400px; font-weight: bold;">
     <%= bootstrap_form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>

@@ -1,8 +1,14 @@
 <head>
-    
+  <style>
+    body.main3{
+             background: url("/image/wave.jpg");
+             background-size: cover;
+         
+        }
+  </style>
 </head>
 
-<body>
+<body class="main3">
   <div class='container'>
     <%= form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: content_path(@content), method: :patch do |f| %>
     

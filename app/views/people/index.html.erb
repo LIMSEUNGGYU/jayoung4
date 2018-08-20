@@ -9,12 +9,21 @@
              border: none;
              border-bottom: solid 0.5px black;
              margin-bottom: 20px;
-         }    
+         }   
+         
+
+        body.main{
+             background: url("/image/wave.jpg");
+             background-size: cover;
+         
+        }
+
      </style>
      
      
 </head>
 
+<body class="main">
 <div class="container">
     <div>
         <%= link_to new_person_path do %>
@@ -55,3 +64,4 @@
         <% end %>
     </div>
 </div>
+</body>

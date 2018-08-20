@@ -1,3 +1,46 @@
+<head>
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,700,800&amp;subset=korean" rel="stylesheet">
+    <style>
+    
+    .login
+    {
+        padding-top: 50px;
+        height: 50px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 3em;
+        letter-spacing:-3px;
+        font-family: 'Cinzel', serif;
+    }
+   
+        body {
+           margin : 0;
+           padding : 0;
+           background-color:black;
+          
+        }
+     
+     
+        video {
+         position: fixed;
+         top: 50%; left: 50%;
+         min-width: 100%;
+         min-height: 100%;
+         width: auto;
+         height: auto;
+         transform: translate(-50%, -50%);
+         opacity: 0.7;
+         z-index : -1;
+        }
+
+    </style>        
+</head>
+
+<body>
+   <video autoplay muted loop>
+      <source src="/video/Sky.mp4" type="video/mp4"></source>
+   </video>
+   
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -14,3 +57,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</body>

@@ -1,3 +1,14 @@
+<head>
+ <style>
+    body.main4{
+             background: url("/image/wave.jpg");
+             background-size: cover;
+         
+        }
+  </style>
+</head>
+
+<body class="main4">
 <div class="container">
     <center><p>연락처 추가</p></center>
     <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: people_path do |f| %>
@@ -55,3 +66,5 @@
             }
         }
 </script>
+
+</body>

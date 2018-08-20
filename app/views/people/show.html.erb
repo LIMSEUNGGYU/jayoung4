@@ -2,9 +2,19 @@
      <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo&amp;subset=korean" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&amp;subset=korean" rel="stylesheet">
+  <style>
+  
+    body.main2{
+        background: url("/image/wave.jpg");
+        background-size: cover;
+         
+    }
+    
+  </style>
 </head>
 
-<body>
+
+<body class="main2">
   <div class="container">
     <div class="row">
       <div class="col-3">
@@ -30,11 +40,11 @@
       </div>
       
       <div class="col-9">
-        <div style="text-align:right; font-weight: bold; font-family: 'Nanum Myeongjo', serif; margin-bottom:12px;">
-          <img src="/image/money-bag.png" width="30" height="30">
+        <div style="text-align:right; font-color: #B9D9F0; font-weight: bold; font-family: 'Nanum Myeongjo', serif; margin-bottom:12px;">
+          <img src="/image/coins.png" width="30" height="30">
            * 누적금액: 
           <%= @person.sum %>원 * 
-          <img src="/image/money-bag.png" width="30" height="30">
+          <img src="/image/coins.png" width="30" height="30">
         </div>
         <table class="table table-hover" style=" line-height: 20px">
           <thead>
