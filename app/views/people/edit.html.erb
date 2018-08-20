@@ -1,7 +1,22 @@
-<div class="container">
+<html>
+<head>
+    <style>
+    .info_edit{
+        width:400px; 
+        font-weight: bold;
+        line-height: 100%;
+    }
+    
+    </style>
+    
+</head>
+
+<body>
+<div class="container" style="display:flex; justify-content:center; margin-top: 50px;">
+      <div class="info_edit">
     <center><p>연락처 변경</p></center>
     <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: person_path, method: :patch  do |f| %>
-        <div class="field">
+        <div class="field" style="padding-top: 30px;">
             <p>프로필 사진</p>
             <%= f.file_field :image %>
         </div>
@@ -26,7 +41,9 @@
         <br><br>
         <p><%= f.button :변경, label: '등록' ,class: 'btn btn-outline-dark' %></p>
     <% end %>
+    </div>
 </div>
+</body>
 
 
 <script>
@@ -55,3 +72,5 @@
             }
         }
 </script>
+
+</html>
