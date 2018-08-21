@@ -7,12 +7,15 @@
     body.main2{
         background: url("/image/wave.jpg");
         background-size: cover;
-         
+    }
+    
+    .card{
+      background-color:rgba(255,255,255,0.1);
+      border: solid 1px #D8E6F0;
     }
     
   </style>
 </head>
-
 
 <body class="main2">
   <div class="container">
@@ -20,19 +23,19 @@
       <div class="col-3">
         
         <div class="col-sm">
-          <div class="card" style="width: 15rem; background-color: #F6F6F6;">
+          <div class="card" style="width: 15rem;">
             <center>
               <%= image_tag @person.image.url, class: 'custom_img'%>
               <div class="card-body">
-                  <h5 class="card-title" style="font-family: 'Black Han Sans', sans-serif; font-size:2em;"><%= @person.name %></h5>
-                  <p class="card-text" style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= @person.relation %></p>
-                  <p class="card-text" style="color: #5D5E5E; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= @person.phone %></p>
-                  <%= link_to edit_person_path(@person) do %>
-                    <button style="margin-top: 8px" type="button" class="btn btn-outline-secondary">수정</button>
-                  <% end %>
-                  <%= link_to person_path(@person), method: :delete do %>
-                    <button style="margin-top: 8px" type="button" class="btn btn-outline-secondary">삭제</button>
-                  <% end %>
+                  <h5 class="card-title" style="color: #D8E6F0; font-family: 'Black Han Sans', sans-serif; font-size:2em;"><%= @person.name %></h5>
+                  <p class="card-text" style="color: white; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px"><%= @person.relation %></p>
+                  <p class="card-text" style="color: white; font-weight: bold; font-family: 'Nanum Gothic', sans-serif;line-height: 8px; padding-bottom: 7px;"><%= @person.phone %></p>
+                  <%= link_to image_tag('/image/edit.png', width: '25px', hspace:'20'), edit_person_path(@person) %>
+                    
+                  
+                  <%= link_to image_tag('/image/garbage.png', width: '25px', hspace: '20'), person_path(@person), method: :delete %>
+                  
+                  
               </div>
             </center>
           </div>
@@ -40,36 +43,36 @@
       </div>
       
       <div class="col-9">
-        <div style="text-align:right; font-color: #B9D9F0; font-weight: bold; font-family: 'Nanum Myeongjo', serif; margin-bottom:12px;">
-          <img src="/image/coins.png" width="30" height="30">
+        <div style="text-align:right; font-weight: bold; font-family: 'Nanum Myeongjo', serif; margin-bottom:12px;">
+          <p style="color: #ffffff;"><img src="/image/coins.png" width="30" height="30">
            * 누적금액: 
           <%= @person.sum %>원 * 
-          <img src="/image/coins.png" width="30" height="30">
+          <img src="/image/coins.png" width="30" height="30"></p>
         </div>
         <table class="table table-hover" style=" line-height: 20px">
           <thead>
-            <tr style="font-family: 'East Sea Dokdo', cursive; font-size: 1.7em;">
+            <tr style="background-color: rgba(255, 255, 255, 0.05); color: #D8E6F0; font-family: 'East Sea Dokdo', cursive; font-size: 2em;">
               <th>수지</th>
               <th>항목</th>
               <th>제목</th>
               <th>금액</th>
               <th>메모</th>
               <th>날짜</th>
-              <th></th>
-              <th></th>
+              <th>수정</th>
+              <th>삭제</th>
             </tr>
           </thead>
           <tbody>
             <% @contents.each do |content| %>
-              <tr style="font-family: 'Nanum Gothic', sans-serif;">
+              <tr style="color: white; font-family: 'Nanum Gothic', sans-serif; letter-spacing: -1px;">
                <td><%= content.inout %></td>
                <td><%= content.category %></td>
                <td><%= content.title %></td>
                <td><%= content.cost %></td>
                <td><%= content.memo %></td>
                <td><%= content.date %></td>
-               <td><%= link_to '수정', edit_content_path(content) %></td>
-               <td><%= link_to '삭제', content_path(content), method: :delete  %></td>
+               <td><%= link_to image_tag('/image/edit.png', width: '20px'), edit_content_path(content) %></td>
+               <td><%= link_to image_tag('/image/garbage.png', width: '20px'), content_path(content), method: :delete  %></td>
               </tr>
             <% end %>
           </tbody>

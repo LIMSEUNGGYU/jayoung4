@@ -4,11 +4,16 @@
   <style>
   
     body.main5 {
-      height: 1300px;
+    
       font-family: 'Nanum Gothic', sans-serif;
       background: url("/image/wave.jpg");
       background-size: cover;
+      color: #D8E6F0;
          
+    }
+    
+    .field{
+      width: 400px;
     }
   
   </style>
@@ -16,21 +21,36 @@
 
 <body class="main5">
   <div class='container' style="display:flex; justify-content:center; margin-top: 50px;">
-    <div style=" width:400px; font-weight: bold;">
+    <div style=" overflow:scroll; overflow-x:hidden; width:inherit; height: 500px; font-weight: bold; display:flex; justify-content:center;">
     <%= bootstrap_form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>
+      
+      <div class="field">
       <%= f.select(:수지내역, ['선택', '수입', '지출'], {:class => 'my-style_class'}) %>
+    </div>
     
+    <div class="field">
       <%= f.select(:항목, ['선택', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%><br>
+      </div>
       
+      <div class="field">
       <%= f.text_field :제목 %><br>
+       </div>
        
+      <div class="field">
       <%= f.number_field :금액, step: 10000 %><br>
+      </div>
        
+      <div class="field">
       <%= f.text_area :메모 %><br>
+      </div>
       
+      <div class="field">
       <%= f.date_field(:날짜) %>
+      </div>
       
-      <%= f.button :등록, label: '등록' ,class: 'btn btn-outline-warning', style: 'margin-top: 20px;' %>
+      <div style="text-align:right;">
+      <%= f.button :추가, label: '추가', class: 'btn btn-outline-warning', style: 'margin-top: 20px;' %>
+      </div>
     <% end %>
     </div>
   </div>

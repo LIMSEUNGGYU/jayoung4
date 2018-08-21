@@ -3,13 +3,12 @@
     body.main3{
              background: url("/image/wave.jpg");
              background-size: cover;
-         
         }
   </style>
 </head>
 
 <body class="main3">
-  <div class='container'>
+  <div class='container' >
     <%= form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: content_path(@content), method: :patch do |f| %>
     
       <%= f.label :inout %> <!-- 수입 지출 목록 -->

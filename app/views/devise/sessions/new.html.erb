@@ -17,9 +17,12 @@
            margin : 0;
            padding : 0;
            background-color:black;
-          
+           color:white;
         }
      
+       .field{
+         width:300px;
+     }
      
         video {
          position: fixed;
@@ -43,7 +46,7 @@
    </video>
    
   <div class="container">
-  <h2>Log in</h2>
+  <h2 class="mt-5">로그인</h2><br>
   
   <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -64,10 +67,10 @@
     <% end -%>
   
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "로그인" %>
     </div>
   <% end %>
-  
+  <br>
   <%= render "devise/shared/links" %>
 </div>
 </body>

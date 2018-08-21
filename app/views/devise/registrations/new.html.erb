@@ -17,9 +17,12 @@
            margin : 0;
            padding : 0;
            background-color:black;
-          
+           color:white;
         }
      
+     .field{
+         width:300px;
+     }
      
         video {
          position: fixed;
@@ -42,7 +45,7 @@
    </video>
    
    <div class="container">
-    <h2>Sign up</h2>
+    <h2 class="mt-5">회원가입</h2>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
     
@@ -86,7 +89,7 @@
       </div>
     
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "회원가입" %>
       </div>
     <% end %>
     

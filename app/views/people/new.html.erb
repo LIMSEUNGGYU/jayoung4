@@ -3,14 +3,18 @@
     body.main4{
              background: url("/image/wave.jpg");
              background-size: cover;
-         
-        }
+             }
+        
+    .field{
+        width:300px;    
+    }
   </style>
 </head>
 
 <body class="main4">
 <div class="container">
-    <center><p>연락처 추가</p></center>
+    <center><h2 class="mt-5">연락처 추가</h2></center>
+    
     <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: people_path do |f| %>
         <div class="field">
             <p>프로필 사진</p>
