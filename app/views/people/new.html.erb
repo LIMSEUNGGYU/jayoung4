@@ -21,22 +21,24 @@
             <%= f.file_field :image %>
         </div>
         <br><br>
+        
         <div class="field">
             <p>이름</p>
             <%= f.text_field :name , class: 'form-control' %>
         </div>
         <br><br>
+        
         <div class="field">
             <p>전화번호</p>
             <%= f.number_field :phone , class: 'form-control' %>
         </div>
         <br><br>
+        
         <div class="field">
             <p>관계</p></p>
             <%= f.select(:relation, ['가족', '친구', '지인', '직장동료', '거래처', '기타'],{:class => 'input-group'})%>
         </div>
         
-    
         <%= f.hidden_field :user_id, value: current_user.id %>
         <br><br>
         <p><%= f.button :submit, label: '등록' ,class: 'btn btn-outline-warning' %></p>
