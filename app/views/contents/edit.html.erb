@@ -1,35 +1,46 @@
 <head>
+   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+
   <style>
     body.main3{
+             font-family: 'Nanum Gothic', sans-serif;
              background: url("/image/wave.jpg");
              background-size: cover;
+             color: #D8E6F0;
         }
+        
+    .field{
+      width: 400px;
+    }    
+        
   </style>
 </head>
 
 <body class="main3">
-  <div class='container' >
-    <%= form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: content_path(@content), method: :patch do |f| %>
+  <center><h2 class="mt-5" style="letter-spacing:-1px;">내역 수정</h2></center>
+  <div class='container' style="overflow:scroll; overflow-x:hidden; width:inherit; height: 450px; font-weight: bold; display:flex; justify-content:center; margin-top: 30px; letter-spacing:-1px;">
+    <div class="field">
+
+    <%= bootstrap_form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: content_path(@content), method: :patch do |f| %>
     
-      <%= f.label :inout %> <!-- 수입 지출 목록 -->
-      <%= f.text_field :inout %><br>
+       <!-- 수입 지출 목록 -->
+      <%= f.text_field :inout, :label => '수지내역' %>
+
+      <%= f.select(:category, ['결혼식', '장례식', '돌잔치(백일)', '기타'],{:label => '항목',:class => 'my_style_class'})%>
       
-      <%= f.select(:category, ['결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%>
+      <%= f.text_field :title, :label => '제목'%>
       
-      <%= f.label :title %>
-      <%= f.text_field :title %><br>
+      <%= f.text_field :cost, :label => '금액' %>
       
-      <%= f.label :cost %>
-      <%= f.text_field :cost %><br>
+      <%= f.text_area :memo, :label => '메모' %>
       
-      <%= f.label :memo %>
-      <%= f.text_area :memo %><br>
+      <%= f.date_field(:date, {:label => '날짜'}) %>
       
-      <%= f.label :date %>
-      <%= f.date_field(:date) %>
-      
+      <div style="text-align:right; padding-top: 10px;">
       <%= f.submit %>
+      </div>
     <% end %>
+    </div>
   </div>
   
   <script>

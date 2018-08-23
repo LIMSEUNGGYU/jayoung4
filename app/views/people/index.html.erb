@@ -161,6 +161,14 @@
       animation: appear 2s forwards;
     }
     
+    select:invalid ~ input[type="submit"]{
+        display:none;
+    }
+    
+    select:valid ~ input[type="submit"]{
+        animation: appear 2s forwards;
+    }
+    
     @-webkit-keyframes appear {
       100% {
         opacity: 1;
@@ -190,7 +198,7 @@
           <%= form_tag search_people_path, :method => :get do %>
               <%= text_field_tag :search, nil, :class => 'question', :required => 'true' , :autocomplete => 'off' %>
                   <label for="search"><span class="input_span">이름 검색</span></label>
-              <%= submit_tag "검색", :name => nil  %>
+              <%= submit_tag "검색", :id => 'search', :name => nil  %>
           <% end %>
           
           <%= form_tag search_people_path, :method => :get do %>

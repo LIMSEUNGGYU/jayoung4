@@ -62,33 +62,26 @@
 </head>
 
 <body class="main5">
-  <div class='container' style="display:flex; justify-content:center; margin-top: 50px;">
-    <div style=" overflow:scroll; overflow-x:hidden; width:inherit; height: 500px; font-weight: bold; display:flex; justify-content:center;">
+  <center><h2 class="mt-5" style = "letter-spacing:-1px;">내역 추가</h2></center>
+  <div class='container' style="overflow:scroll; overflow-x:hidden; width:inherit; height: 450px; font-weight: bold; display:flex; justify-content:center; margin-top: 30px; letter-spacing:-1px;">
+     
+  <!--style="display:flex; justify-content:center; margin-top: 50px; ">-->
+    
+    <div class ="field">
+
     <%= bootstrap_form_for :content, :html => {:multipart => true, name: "contentForm",  :onsubmit => "return validateform();"}, url: person_contents_path(@person.id) do |f| %>
       
-      <div class="field">
-      <%= f.select(:수지내역, ['선택', '수입', '지출'], {:class => 'my-style_class'}) %>
-    </div>
-    
-    <div class="field">
-      <%= f.select(:항목, ['선택', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:class => 'my_style_class'})%><br>
-      </div>
+      <%= f.select(:inout, ['선택', '수입', '지출'], {:label => '수지내역', :class => 'my-style_class'}) %>
+ 
+      <%= f.select(:category, ['선택', '결혼식', '장례식', '돌잔치(백일)', '기타'], {:label => '항목', :class => 'my_style_class'})%><br>
       
-      <div class="field">
-      <%= f.text_field :제목 %><br>
-       </div>
-       
-      <div class="field">
-      <%= f.number_field :금액, step: 10000 %><br>
-      </div>
-       
-      <div class="field">
-      <%= f.text_area :메모 %><br>
-      </div>
-      
-      <div class="field">
-      <%= f.date_field(:날짜) %>
-      </div>
+      <%= f.text_field :title, :label => '제목' %><br>
+
+      <%= f.number_field :cost, :label => '비용', step: 10000 %><br>
+
+      <%= f.text_area :memo, :label => '메모' %><br>
+
+      <%= f.date_field(:date, :label => '날짜') %>
       
       <div style="text-align:right;"> 
         <%= f.button :추가, label: '추가', class: 'btn btn-three', style: 'margin-top: 20px;' %>

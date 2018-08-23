@@ -1,24 +1,31 @@
 <html>
 <head>
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+
     <style>
-        .info_edit{
-            width:400px; 
-            font-weight: bold;
-            line-height: 100%;
-        }
+    
+    .info_edit{
+        width:400px; 
+        font-weight: bold;
+        line-height: 100%;
+    }
+    
+    body.main6{
         
-        body.main6{
-            background: url("/image/wave.jpg");
-            background-size: cover;
-        }
+      font-family: 'Nanum Gothic', sans-serif;
+      background: url("/image/wave.jpg");
+      background-size: cover;
+      color: #D8E6F0;
+    }
     
     </style>
+    
 </head>
 
 <body class="main6">
-<div class="container" style="display:flex; justify-content:center; margin-top: 50px;">
+<div class="container" style="font-weight: bold; display:flex; justify-content:center; margin-top: 50px; letter-spacing:-1px;">
       <div class="info_edit">
-    <center><p>연락처 변경</p></center>
+    <center><h2>연락처 수정</h2></center>
     <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: person_path, method: :patch  do |f| %>
         <div class="field" style="padding-top: 30px;">
             <p>프로필 사진</p>
@@ -43,7 +50,7 @@
     
         <%= f.hidden_field :user_id, value: current_user.id %>
         <br><br>
-        <p><%= f.button :변경, label: '등록' ,class: 'btn btn-outline-dark' %></p>
+        <p style="text-align:right;"><%= f.button :변경, label: '등록' , class: 'btn btn-outline-dark' %></p>
     <% end %>
     </div>
 </div>

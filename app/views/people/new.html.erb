@@ -1,9 +1,16 @@
 <head>
+ <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+
  <style>
+ 
     body.main4{
              background: url("/image/wave.jpg");
              background-size: cover;
-             }
+             font-family: 'Nanum Gothic', sans-serif;
+             color: #D8E6F0;
+             
+        
+    }
         
     .field{
         width:300px;    
@@ -12,38 +19,41 @@
 </head>
 
 <body class="main4">
-<div class="container">
+<div class="container" style = "letter-spacing:-1px;">
     <center><h2 class="mt-5">연락처 추가</h2></center>
-    
+    <div style="font-weight: bold; display:flex; justify-content:center; margin-top: 30px; letter-spacing:-1px;">
     <%= form_for :person, :html => { :multipart => true, name: "personForm", :onsubmit => "return validateform();"}, url: people_path do |f| %>
         <div class="field">
             <p>프로필 사진</p>
             <%= f.file_field :image %>
         </div>
-        <br><br>
+        <br>
         
         <div class="field">
             <p>이름</p>
             <%= f.text_field :name , class: 'form-control' %>
         </div>
-        <br><br>
+        <br>
         
         <div class="field">
             <p>전화번호</p>
             <%= f.number_field :phone , class: 'form-control' %>
         </div>
-        <br><br>
+        <br>
         
         <div class="field">
-            <p>관계</p></p>
+            <p>관계</p>
             <%= f.select(:relation, ['가족', '친구', '지인', '직장동료', '거래처', '기타'],{:class => 'input-group'})%>
         </div>
         
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <br><br>
-        <p>
-            <%= f.button :submit, label: '등록' ,class: 'btn btn-three' %></p>
+        <br>
+        
+            <div style="text-align:right; margin-top: 10px;">
+             <%= f.button :추가, label: '추가', class: 'btn btn-three' %>
     <% end %>
+    </div>
+    </div>
 </div>
 
 
