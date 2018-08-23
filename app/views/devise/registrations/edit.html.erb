@@ -1,11 +1,12 @@
 <head>
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
   <style>
     
       body {
            margin : 0;
            padding : 0;
            background-color:black;
-          color:white;
+          
         }
      
         video {
@@ -20,25 +21,40 @@
          z-index : -1;
         }
         
+        .info_edit0{
+          color:white;
+          font-family: 'Nanum Gothic', sans-serif;
+          letter-spacing: -1px;
+          font-weight: bold;
+          display:flex;
+          justify-content:center; 
+        
+        }
+        
+        .field{
+          
+          width: 400px;
+        }
+        
+        
   </style>
   
   
 </head>
-
 <body>
 <video autoplay muted loop>
       <source src="/video/Sky.mp4" type="video/mp4"></source>
    </video>
-
-<div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container" >
+  <center style = "padding-top: 50px; letter-spacing: -1px; color: white; font-family: 'Nanum Gothic', sans-serif;"><h2>정보수정</h2></center>
+  <div class ="info_edit0">
   
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  
+  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
   
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="field" style="margin-top: 30px;">
+      <%= f.email_field :email, :label => 'ID (Email)', autofocus: true, autocomplete: "email" %>
     </div>
   
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -46,37 +62,30 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
+      <%= f.password_field :password, :label => '변경할 비밀번호 (최소 6자리 입력)', autocomplete: "new-password" %>
     </div>
   
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, :label => '변경할 비밀번호 확인', autocomplete: "new-password" %>
     </div>
   
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, :label => '현재 비밀번호', autocomplete: "current-password" %>
     </div>
   
   
-    <div class="actions">
-      <%= f.submit "Update" %>
+    <div class="actions" style="text-align:right; padding-top: 20px;">
+      <%= f.submit "수정완료" %>
     </div>
   <% end %>
-  
+   </div>
   <br/><br/>
+  <div class='cancel'>
+   <h4 style="letter-spacing: -1px; color: white; font-family: 'Nanum Gothic', sans-serif;">회원탈퇴</h4>
   
-  <h3>Cancel my account</h3>
+  <p> <%= button_to "회원탈퇴하기", registration_path(resource_name), data: { confirm: "확실하신가요?" }, method: :delete %></p>
   
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
-  <%= link_to "Back", :back %>
-</div>
-
+  <%= link_to "← 이전화면으로 돌아가기", :back %>
+  </div>
+ </div>
 </body>
